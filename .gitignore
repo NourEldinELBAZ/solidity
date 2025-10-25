@@ -1,0 +1,4 @@
+.states/*
+artifacts/*
+prettierrc.json
+remix.config.json
