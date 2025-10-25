@@ -1,36 +1,75 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract MyContract{
-    uint [] public numbers = [1,2,3];
-    address public owner;
-    constructor() {
+contract Ownable {
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == owner ,"Must be owner");
+        _;
+    }
+
+    constructor(){
         owner = msg.sender;
     }
-    function countEven() public view returns (uint) {
-        uint count=0;
-        for (uint i=0; i < numbers.length; i++) 
-        {
-            if(isEven(numbers[i])){
-                count++;
-            }
-        }
-        return count;
+}
+
+contract SecretVault{
+    string secret;
+    constructor(string memory _secret) {
+        secret = _secret;
+
     }
-    function isEven(uint _number) public pure returns(bool){
-        if(_number % 2 == 0 ){
-        return true;}
-        else {return false;}
+    function getSecret() public view returns(string memory){
+        return secret;
     }
+
+}
+
+
+contract MyContract is Ownable{
+
+    address secretVault;
+    constructor(string memory _secret){
+        SecretVault _secretVault = new SecretVault(_secret);
+        secretVault = address(_secretVault);
+        super;
+    }
+
+    function getSecret() public view onlyOwner returns(string memory){
+        return SecretVault(secretVault).getSecret();
+    }
+
+  
     
-    function isOwner(address _address) public view returns(bool) {
-        if(owner == _address){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+    // uint [] public numbers = [1,2,3];
+    // address public owner;
+    // constructor() {
+    //     owner = msg.sender;
+    // }
+    // function countEven() public view returns (uint) {
+    //     uint count=0;
+    //     for (uint i=0; i < numbers.length; i++) 
+    //     {
+    //         if(isEven(numbers[i])){
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
+    // function isEven(uint _number) public pure returns(bool){
+    //     if(_number % 2 == 0 ){
+    //     return true;}
+    //     else {return false;}
+    // }
+    
+    // function isOwner(address _address) public view returns(bool) {
+    //     if(owner == _address){
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
     // mapping(uint => string) names;
 
     // constructor() {
