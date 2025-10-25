@@ -9,6 +9,89 @@
 				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "countEven",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_number",
+						"type": "uint256"
+					}
+				],
+				"name": "isEven",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isOwner",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "numbers",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -39,11 +122,11 @@
 	},
 	"sources": {
 		"contracts/MyContract.sol": {
-			"keccak256": "0xab326a8dbf5f8b496693ddcfd0d69b29b5b599a676dad160af110385d4acb668",
+			"keccak256": "0x94180c3485c51b6b8446147d16518db4b1650b4b0f77437962e0eecc97527ef1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6b20d8d3096183999da83c5204fa11f097748dacde5a8651ee2180a9fb35d1d6",
-				"dweb:/ipfs/QmZF9JnVNrWoZzZPceuEukjmAaTer4tL71Hg4MkKsaXcGf"
+				"bzz-raw://fc4ae5af8cedd82ceac802818ccb728fb9c7b904fa17ae9f799293c8ed65c714",
+				"dweb:/ipfs/Qmd97GovcqvpNyw1Dka1PRmqpk95JHvrnkaMjHrqCmoiPQ"
 			]
 		}
 	},

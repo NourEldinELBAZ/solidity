@@ -2,13 +2,42 @@
 pragma solidity ^0.8.0;
 
 contract MyContract{
-    mapping(uint => string) names;
-
+    uint [] public numbers = [1,2,3];
+    address public owner;
     constructor() {
-        names[1] = "Adam";
-        names[2] = "Bruce";
-        names[3] = "Bob";
+        owner = msg.sender;
     }
+    function countEven() public view returns (uint) {
+        uint count=0;
+        for (uint i=0; i < numbers.length; i++) 
+        {
+            if(isEven(numbers[i])){
+                count++;
+            }
+        }
+        return count;
+    }
+    function isEven(uint _number) public pure returns(bool){
+        if(_number % 2 == 0 ){
+        return true;}
+        else {return false;}
+    }
+    
+    function isOwner(address _address) public view returns(bool) {
+        if(owner == _address){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    // mapping(uint => string) names;
+
+    // constructor() {
+    //     names[1] = "Adam";
+    //     names[2] = "Bruce";
+    //     names[3] = "Bob";
+    // }
     
     // uint [] public uintArray = [1,2,3];
     // string [] strignArray = ["apple", "banana"];
